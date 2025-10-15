@@ -23,4 +23,4 @@ jobs:
         env:
           NOTION_TOKEN: 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
           NOTION_PAGE_ID: 28d8f9a1d3fc809c82d5e55efd73734b
-        run: python push_to_notion.py
+        run: python ./.github/workflows/push_to_notion.py

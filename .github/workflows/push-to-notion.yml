@@ -1,0 +1,26 @@
+name: Push Time to Notion
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # 每小时运行
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run Python script
+        env:
+          NOTION_TOKEN: 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
+          NOTION_PAGE_ID: 28d8f9a1d3fc809c82d5e55efd73734b
+        run: python push_to_notion.py
